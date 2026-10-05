@@ -310,6 +310,33 @@ button {
   font-size: 0.72rem;
   opacity: 0.7;
 }
+.gallery-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.gallery-tools select.input {
+  width: auto;
+  cursor: pointer;
+}
+.gallery-empty {
+  color: var(--ink-3);
+  padding: 24px 0;
+}
+.link-button {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .gallery-tools {
+    grid-template-columns: 1fr;
+  }
+  .gallery-tools select.input {
+    width: 100%;
+  }
+}
 .filters {
   display: flex;
   flex-wrap: wrap;
