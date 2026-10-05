@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 /** Where Studio login codes go. Set in .env.local, never typed on the login page. */
 export const recoveryEmail = () => process.env.STUDIO_RECOVERY_EMAIL?.trim() || null;
 
-/** "u•••••5@gmail.com" — enough for the host to know which inbox to check. */
+/** "a•••••r@gmail.com" — enough for the host to know which inbox to check. */
 export function maskEmail(email: string) {
   const [name, domain] = email.split("@");
   return `${name[0]}${"•".repeat(Math.max(3, name.length - 2))}${name.length > 1 ? name.at(-1) : ""}@${domain}`;
