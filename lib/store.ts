@@ -2,7 +2,7 @@ import "server-only";
 
 import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { BlobPreconditionFailedError, del, get, put } from "@vercel/blob";
+import { BlobNotFoundError, BlobPreconditionFailedError, del, get, head, put } from "@vercel/blob";
 
 /**
  * Where the Studio keeps what it saves.
@@ -30,14 +30,27 @@ async function readLocal<T>(doc: JsonDoc<T>): Promise<T> {
   }
 }
 
-async function readBlob<T>(doc: JsonDoc<T>): Promise<{ data: T; etag?: string }> {
+async function readBlob<T>(doc: JsonDoc<T>): Promise<T> {
   const res = await get(doc.key, { access: ACCESS, useCache: false });
-  if (res?.statusCode === 200) return { data: JSON.parse(await new Response(res.stream).text()) as T, etag: res.blob.etag };
-  return { data: await readLocal(doc) };
+  if (res?.statusCode === 200) return JSON.parse(await new Response(res.stream).text()) as T;
+  return readLocal(doc);
+}
+
+/**
+ * The document plus the ETag to save it with. The ETag comes from head(), not get(): get() goes
+ * through the CDN, which gzips JSON and hands back a weak `W/"…"` ETag that never matches on save.
+ * head() runs first, so if someone saves in between, our save is refused and retried.
+ */
+async function readBlobForUpdate<T>(doc: JsonDoc<T>): Promise<{ data: T; etag?: string }> {
+  const meta = await head(doc.key).catch((err) => {
+    if (err instanceof BlobNotFoundError) return null;
+    throw err;
+  });
+  return { data: await readBlob(doc), etag: meta?.etag };
 }
 
 export async function readDoc<T>(doc: JsonDoc<T>): Promise<T> {
-  return usingBlob() ? (await readBlob(doc)).data : readLocal(doc);
+  return usingBlob() ? readBlob(doc) : readLocal(doc);
 }
 
 // One queue for all writes in this process, so two quick saves can't overwrite each other.
@@ -60,7 +73,7 @@ export function updateDoc<T, R>(doc: JsonDoc<T>, change: (data: T) => R | Promis
     }
 
     for (let attempt = 0; ; attempt++) {
-      const { data, etag } = await readBlob(doc);
+      const { data, etag } = await readBlobForUpdate(doc);
       const result = await change(data);
       try {
         await put(doc.key, JSON.stringify(data, null, 2) + "\n", {
