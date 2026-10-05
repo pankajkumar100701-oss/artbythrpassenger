@@ -1,0 +1,301 @@
+[
+  {
+    "slug": "abstract-landscape",
+    "title": "Abstract landscape",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (270gsm)",
+    "category": "watercolour",
+    "size": "33.5cm x 33.5 cm",
+    "price": 50,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/abstract-landscape/1.webp",
+        "width": 1800,
+        "height": 1350
+      }
+    ]
+  },
+  {
+    "slug": "alpenglow",
+    "title": "Alpenglow",
+    "year": 2026,
+    "status": "available",
+    "medium": "Acrylic on canvas",
+    "category": "acrylic",
+    "size": "30 inches in diameter (round canvas)",
+    "price": 380,
+    "story": [
+      "The last light catches the peaks before the valley falls into blue shadow — alpenglow, held in paint on a round canvas."
+    ],
+    "images": [
+      {
+        "src": "/art/alpenglow/1.webp",
+        "width": 1776,
+        "height": 1184
+      },
+      {
+        "src": "/art/alpenglow/2.webp",
+        "width": 1776,
+        "height": 1184
+      },
+      {
+        "src": "/art/alpenglow/3.webp",
+        "width": 1350,
+        "height": 1800
+      },
+      {
+        "src": "/art/alpenglow/4.webp",
+        "width": 1350,
+        "height": 1800
+      },
+      {
+        "src": "/art/alpenglow/5.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "cottage-in-the-trees",
+    "title": "Cottage in the Trees",
+    "year": 2026,
+    "status": "sold",
+    "medium": "Watercolour on paper (270gsm), framed with glass surface",
+    "category": "watercolour",
+    "size": "33.5 × 44.5 cm",
+    "price": null,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/cottage-in-the-trees/1.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "daffodils-in-a-blue-vase",
+    "title": "Daffodils in a Blue Vase",
+    "year": 2026,
+    "status": "available",
+    "medium": "Acrylic on canvas",
+    "category": "acrylic",
+    "size": "60 × 60 cm",
+    "price": 115,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/daffodils-in-a-blue-vase/1.webp",
+        "width": 861,
+        "height": 1116
+      },
+      {
+        "src": "/art/daffodils-in-a-blue-vase/2.webp",
+        "width": 1530,
+        "height": 1800
+      },
+      {
+        "src": "/art/daffodils-in-a-blue-vase/3.webp",
+        "width": 1530,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "forest-bath",
+    "title": "Forest bath",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (270gsm), framed with glass surface",
+    "category": "watercolour",
+    "size": "",
+    "price": 55,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/forest-bath/1.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "frequencies",
+    "title": "Frequencies",
+    "year": 2026,
+    "status": "available",
+    "medium": "Abstract watercolour on paper (300gsm), framed with glass surface",
+    "category": "watercolour",
+    "size": "6.9 × 7.9 inches",
+    "price": 121,
+    "story": [
+      "When brush strokes move and colours are combined with the artist's emotion, it arouses in viewers a shared emotion that we all experience once; that's the frequencies you resonate with. And it doesn't require you to come from the same background, same nationalities to get that resonance. Just human feelings."
+    ],
+    "images": [
+      {
+        "src": "/art/frequencies/1.webp",
+        "width": 1800,
+        "height": 1350
+      }
+    ]
+  },
+  {
+    "slug": "her-garden",
+    "title": "Her garden",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (270gsm), framed with glass surface",
+    "category": "watercolour",
+    "size": "33.5 × 44.5 cm",
+    "price": 91,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/her-garden/1.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "iced-berry",
+    "title": "Iced Berry",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (300gsm), without frame",
+    "category": "watercolour",
+    "size": "33.5 × 44.5 cm",
+    "price": 29,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/iced-berry/1.webp",
+        "width": 1800,
+        "height": 1005
+      }
+    ]
+  },
+  {
+    "slug": "kumquat",
+    "title": "Kumquat",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (300gsm)",
+    "category": "watercolour",
+    "size": "33.5 × 33.5 cm",
+    "price": 40,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/kumquat/1.webp",
+        "width": 896,
+        "height": 1196
+      }
+    ]
+  },
+  {
+    "slug": "path-through-the-mountain-village",
+    "title": "Path Through the Mountain Village",
+    "year": 2026,
+    "status": "available",
+    "medium": "Watercolour on paper (270gsm), framed with glass surface",
+    "category": "watercolour",
+    "size": "33.5 × 44.5 cm",
+    "price": 60,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/path-through-the-mountain-village/1.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "roses",
+    "title": "Roses",
+    "year": 2026,
+    "status": "available",
+    "medium": "Acrylic on round canvas board (16 inches), unframed",
+    "category": "acrylic",
+    "size": "16 in diameter",
+    "price": 60,
+    "story": [],
+    "images": [
+      {
+        "src": "/art/roses/1.webp",
+        "width": 1072,
+        "height": 1316
+      },
+      {
+        "src": "/art/roses/2.webp",
+        "width": 1530,
+        "height": 1800
+      },
+      {
+        "src": "/art/roses/3.webp",
+        "width": 1530,
+        "height": 1800
+      },
+      {
+        "src": "/art/roses/4.webp",
+        "width": 1530,
+        "height": 1800
+      },
+      {
+        "src": "/art/roses/5.webp",
+        "width": 1530,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "still-life-studies",
+    "title": "Still Life Studies",
+    "year": 2026,
+    "status": "available",
+    "medium": "Acrylic on canvas",
+    "category": "acrylic",
+    "size": "24 × 30 inches",
+    "price": 220,
+    "story": [
+      "Cobalt bottles, a stoneware vase, and a stray apple and mandarin gathered on a cloth of red and ochre — a study in how light moves across glass, glaze, and folded fabric."
+    ],
+    "images": [
+      {
+        "src": "/art/still-life-studies/1.webp",
+        "width": 1450,
+        "height": 1800
+      },
+      {
+        "src": "/art/still-life-studies/2.webp",
+        "width": 1450,
+        "height": 1800
+      }
+    ]
+  },
+  {
+    "slug": "sold-sunset-hill",
+    "title": "Sunset Hill",
+    "year": 2026,
+    "status": "sold",
+    "medium": "Acrylic on canvas",
+    "category": "acrylic",
+    "size": "29.7 × 42.0 cm",
+    "price": null,
+    "story": [
+      "This is the very first sky I ever painted in acrylic, and I put my whole heart into it to capture a sky that carries nostalgia - the kind that surfaces in your memory when you think of a place that's close to your heart.",
+      "For me, this sunset says that a scene can become a memory - one that lives on in your heart forever, even after time has passed and you've changed.",
+      "When my buyer saw it, he told me it reminded him of his family. The mountain is life's struggle to keep growing, its shadowed side holds the weight of the hard days, and the sunset above is life's ultimate goal: to simply be present, and to enjoy life just as it is - because life is beautiful."
+    ],
+    "images": [
+      {
+        "src": "/art/sold-sunset-hill/1.webp",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  }
+]

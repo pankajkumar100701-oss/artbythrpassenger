@@ -1,0 +1,57 @@
+{
+  "contact": {
+    "tagline": "Paintings & monthly letters",
+    "description": "Slow paintings by Bao Han — and one letter from the Universe, written by hand each month.",
+    "email": "artbythepassenger@gmail.com",
+    "instagram": "https://www.instagram.com/art.bythepassenger/"
+  },
+  "about": {
+    "greeting": "Hey, I'm Han.",
+    "paragraphs": [
+      "I'm an artist living in the Himalayas. Whenever a wave of energy moves through me, it carries a message I want to share with everyone who crosses my path — my paintings carry that same energy.",
+      "For years, my dream of becoming an artist waited quietly, until the right moment lit the fire to pursue it wholeheartedly. That moment came just weeks after my baby was born. I chose to finally live my dream, so that one day she feels free to live hers too. She's the inspiration behind a book I wrote during my pregnancy.",
+      "It wasn't the first path I chose, but it's the one I've fought for, and it has finally come true. I'm honored to share it with you, with sincere love."
+    ],
+    "signoff": "Welcome, and I hope you enjoy my art."
+  },
+  "club": {
+    "name": "Message from the Universe Club",
+    "summary": "One physical envelope a month: a handwritten letter from Han, sealed with wax and addressed by hand, carrying the message of the month — with a print of that month's painting tucked inside.",
+    "plans": [
+      {
+        "id": "monthly",
+        "label": "Monthly",
+        "price": "$8",
+        "cadence": "per month",
+        "note": "Cancel any time, no minimum."
+      },
+      {
+        "id": "yearly",
+        "label": "Yearly",
+        "price": "$80",
+        "cadence": "per year",
+        "note": "Two months free."
+      }
+    ],
+    "details": [
+      "Dispatched in the first week of every month",
+      "Shipping included, worldwide",
+      "Typical delivery 1–3 weeks",
+      "Gift subscriptions welcome"
+    ]
+  },
+  "book": {
+    "title": "Letters to a Little Seed",
+    "summary": "A collection of thoughts, prose, and sketches written quietly across the high mountain seasons during pregnancy — dedicated to a newborn daughter.",
+    "quote": "I chose to finally live my dream, so that one day you will feel free to live yours too."
+  },
+  "gallery": {
+    "allLabel": "All works",
+    "availableLabel": "Available",
+    "soldLabel": "Found a home",
+    "showAvailable": true,
+    "showSold": true,
+    "showCounts": true,
+    "showEmpty": false
+  }
+}
