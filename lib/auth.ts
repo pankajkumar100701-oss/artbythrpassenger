@@ -1,11 +1,11 @@
 import "server-only";
 
 import { createHash, createHmac, randomBytes, randomInt, scrypt, timingSafeEqual } from "node:crypto";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { readDoc, updateDoc, type JsonDoc } from "./store";
 
 const COOKIE = "abtp_studio";
 /** A login lasts at most this long, even while in use. */
@@ -30,9 +30,13 @@ const CODE_MAX_TRIES = 5;
  */
 const CODES_PER_HOUR = 30;
 
-// Server-only state, outside /content and /public. Ignored by git.
-// Deleting this file resets the Studio password to ADMIN_PASSWORD from .env.local.
-const STATE_FILE = path.join(process.cwd(), ".studio", "auth.json");
+// Server-only state, outside /content and /public. Ignored by git. On a live host it is a private
+// Vercel Blob (lib/store.ts). Deleting it resets the Studio password to ADMIN_PASSWORD.
+const STATE_DOC: JsonDoc<State> = {
+  key: "studio/auth.json",
+  file: path.join(process.cwd(), ".studio", "auth.json"),
+  empty: () => ({ sessions: [], events: [], fails: {} }),
+};
 
 type Session = { id: string; key: string; started: number; lastSeen: number; ip: string; device: string };
 /** A password set from Studio → Security. Only the scrypt hash is stored. */
@@ -101,32 +105,20 @@ async function passwordMatches(state: State, input: string) {
 
 async function readState(): Promise<State> {
   try {
-    const state = JSON.parse(await readFile(STATE_FILE, "utf8")) as State & { session?: Session | null };
-    // Older files kept a single "session".
-    state.sessions ??= state.session ? [state.session] : [];
-    delete state.session;
-    return state;
+    return migrate(await readDoc(STATE_DOC));
   } catch {
-    return { sessions: [], events: [], fails: {} };
+    return STATE_DOC.empty!();
   }
 }
 
-// One queue for all writes, like lib/artworks.ts.
-let queue: Promise<unknown> = Promise.resolve();
-
-function updateState<R>(change: (state: State) => R): Promise<R> {
-  const run = queue.then(async () => {
-    const state = await readState();
-    const result = change(state);
-    await mkdir(path.dirname(STATE_FILE), { recursive: true });
-    const tmp = `${STATE_FILE}.${process.pid}.tmp`;
-    await writeFile(tmp, JSON.stringify(state, null, 2) + "\n", { mode: 0o600 });
-    await rename(tmp, STATE_FILE);
-    return result;
-  });
-  queue = run.catch(() => {});
-  return run;
+/** Older files kept a single "session". */
+function migrate(state: State & { session?: Session | null }): State {
+  state.sessions ??= state.session ? [state.session] : [];
+  delete state.session;
+  return state;
 }
+
+const updateState = <R>(change: (state: State) => R): Promise<R> => updateDoc(STATE_DOC, (state) => change(migrate(state)));
 
 /** Sessions used recently and signed with the current password. Each one takes a seat. */
 const liveSessions = (state: State, now: number) =>

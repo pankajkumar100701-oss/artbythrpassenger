@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // A stray package-lock.json in the parent folder made Next guess the wrong project root.
   turbopack: { root: __dirname },
   poweredByHeader: false,
+  // The content/*.json files are read at runtime (they seed Vercel Blob until the first Studio save).
+  outputFileTracingIncludes: { "/**": ["./content/*.json"] },
   async headers() {
     return [
       {
